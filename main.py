@@ -1,9 +1,18 @@
 from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
+from kivy.lang import Builder
 
-class Main_App(MDApp):
-    def build(self):
-        return MDLabel(text="welcome to pihu Tech",halign="center")
+class SampleApp(MDApp):
     
-if __name__=='__main__':
-    Main_App().run()
+    def build(self):
+        self.appKv='''
+MDScreen:
+    MDLabel:
+        text:'Welcome to pihu tech'
+        multiline:True
+        halign:'center'         
+'''
+        AppScreen=Builder.load_string(self.appKv)
+        return AppScreen
+
+SampleApp().run()
+    
